@@ -20,7 +20,7 @@ jobs:
         run: g++ hello.cpp -o hello_${{vars.RUNNER_OS}}.o
 
       - name: Run cpp app
-        run: ./hello.o
+        run: ./hello_${{vars.RUNNER_OS}}.o
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
