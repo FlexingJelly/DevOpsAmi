@@ -27,8 +27,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: build cpp
-        run: g++ hello.cpp -o hollo.o
+        run: g++ hello.cpp -o hello.o
 
       # Runs a set of commands using the runners shell
       - name: Run cpp app
-        run: ./hello.cpp
+        run: ./hello.o
