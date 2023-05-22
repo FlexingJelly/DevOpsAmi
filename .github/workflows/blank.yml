@@ -31,3 +31,19 @@ jobs:
           name: cpp app
           path: ${{env.app-name}}
           retention-days: 1
+          
+          
+  sentMessage:
+   name: Build
+   runs-on: ubuntu-latest
+   steps:
+    - name: send telegram message on push
+      uses: appleboy/telegram-action@master
+      with:
+        to: 988799349
+        token: 6199017139:AAFS39-3_DAwZ0883dkXjM5ZM6qwqG4AVLs
+        message: |
+          ${{ github.actor }} created commit:
+          Commit message: ${{ github.event.commits[0].message }}
+          Repository: ${{ github.repository }}
+          See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
