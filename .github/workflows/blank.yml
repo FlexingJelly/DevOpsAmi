@@ -62,5 +62,5 @@ jobs:
     - name: print env
       run: env 
     - name: echo
-      run: echo 1 >> 1.txt
+      run: 1 Out-File 1.txt
    
