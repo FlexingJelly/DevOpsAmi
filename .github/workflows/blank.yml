@@ -34,7 +34,8 @@ jobs:
           
           
   sentMessage:
-   name: Build
+   needs: build-matrix
+   name: Sent Message
    runs-on: ubuntu-latest
    steps:
     - name: send telegram message on push
