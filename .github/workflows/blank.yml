@@ -13,18 +13,20 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{matrix.os}}
+    env:
+        app-name: hello_${{matrix.os}}.o
     steps:
       - uses: actions/checkout@v3
       
       - name: build cpp
-        run: g++ hello.cpp -o hello_${{runner.os}}.o
+        run: g++ hello.cpp -o ${{env.app-name}}
 
       - name: Run cpp app
-        run: ./hello_${{runner.os}}.o
+        run: ./${{env.app-name}}
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with: 
           name: cpp app
-          path: hello_${{runner.os}}.o
+          path: ${{env.app-name}}
           retention-days: 1
