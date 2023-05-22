@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: build cpp
-        run: g++ hello.cpp -o hello.o
+        run: g++ hello.cpp -o hello_${{vars.RUNNER_OS}}.o
 
       - name: Run cpp app
         run: ./hello.o
@@ -26,5 +26,5 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with: 
           name: cpp app
-          path: hello.o
+          path: hello_${{vars.RUNNER_OS}}.o
           retention-days: 1
